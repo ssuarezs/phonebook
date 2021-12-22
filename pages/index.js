@@ -4,10 +4,10 @@ import perServices from './api/persons'
 
 const useText = (initial) => {
   const [value, setValue] = useState('')
-  const handle = (e) => {
-    setValue(e.target.value)
-  }
+
+  const handle = e => {setValue(e.target.value)}
   const reset = () => setValue('')
+
   return [value, handle, reset]
 }
 
