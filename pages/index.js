@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Filter, PersonForm, List } from './components'
+import { Filter, PersonForm, List } from '../components/index'
 import perServices from './api/persons'
 
 const useText = (initial) => {
