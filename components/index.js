@@ -24,14 +24,14 @@ export const PersonForm = ({handleSubmit, newName, handleName, newNumber, handle
 
 export const List = ({ filter, persons, filText, del }) => 
     filText  
-      ? filter.map(p => 
+      ? filter.map((p,index) => 
         <div key={p.id}>
-          {p.id} {p.name} {p.number}
+          {index+1} {p.name} {p.number}
           <button onClick={()=>del(p.id, p.name)}>delete</button>
         </div>)
-      : persons.map(p => 
+      : persons.map((p,index) => 
         <div key={p.id}>
-          {p.id} {p.name} {p.number}
+          {index+1} {p.name} {p.number}
           <button onClick={()=>del(p.id, p.name)}>delete</button>
         </div>
       )

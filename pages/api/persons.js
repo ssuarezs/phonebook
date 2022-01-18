@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'https://nameless-tundra-33166.herokuapp.com/api/persons'
+const baseUrl = 'http://localhost:3001/api/persons'
 
 const getAll = () => {
   const req = axios.get(baseUrl)
@@ -13,10 +13,9 @@ const createPerson = (newObject) => {
 }
 
 const updatePerson = ({id, name, number}, newNumber) => {
-  //const newObject = { id, name, number: newNumber}
-  //const req = axios.post(`${baseUrl}/${id}`, newObject)
-  //return req.then(res => res.data)
-  console.log('updatePerson')
+  const newObject = { name, number: newNumber}
+  const req = axios.put(`${baseUrl}/${id}`, newObject)
+  return req.then(res => res.data)
 }
 
 const delPerson = (id) => {

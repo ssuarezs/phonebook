@@ -28,7 +28,6 @@ const App = () => {
     const newPerson = { 
       name: newName, 
       number: newNumber, 
-      id: persons.at(-1).id + 1 
     }
     const oldPerson = persons.filter(p => p.name === newName)
     if(oldPerson.length === 0){
