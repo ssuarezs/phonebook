@@ -23,6 +23,16 @@ const App = () => {
   const [newName, handleName, resetName] = useText('')
   const [newNumber, handleNumber, resetNumber] = useText('')
 
+  const addPerson = (newPerson) => {
+    setPersons(prev => prev.concat(newPerson))
+    setAdded(newName)
+    setTimeout(()=>{
+      setAdded('')
+    }, 3000)
+    resetName()
+    resetNumber()
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const newPerson = { 
@@ -32,16 +42,8 @@ const App = () => {
     const oldPerson = persons.filter(p => p.name === newName)
     if(oldPerson.length === 0){
       perServices.createPerson(newPerson)
-      setPersons(prev => prev.concat(newPerson))
-      setAdded(newName)
-      setTimeout(()=>{
-        setAdded('')
-      }, 3000)
-      resetName()
-      resetNumber()
-      setTimeout(()=>{
-        setAdded('')
-      }, 3000)
+        .then(newP => addPerson(newP))
+        .catch(err => console.log(err.response.data))
       return null
     }
 
